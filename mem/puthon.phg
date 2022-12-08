@@ -1,0 +1,19 @@
+import requests
+import urllib
+
+username = 'angelina45'
+password = "S9fh+jY9RLE5W*X"
+
+userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36' \
+
+data = requests.get('https://api.imgflip.com/get_memes').json()['data']['memes']
+
+images = [{'name':image['name'],'url':image['url'],'id':image['id']} for image in data]
+
+print('Лист доступных мемов: ')
+
+ctr = 1
+
+for img in images:
+    print(ctr, img['name'])
+    ctr = ctr + 1
